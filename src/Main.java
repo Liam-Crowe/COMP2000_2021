@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Main extends JFrame{
+public class Main extends JFrame {
     public static void main(String[] args) throws Exception {
         Main window = new Main();
     }
@@ -13,22 +13,18 @@ public class Main extends JFrame{
 
         @Override
         public void paint(Graphics g) {
-            for(int i = 10; i < 710; i = i + 35) {
-                for(int j = 10; j < 710; j = j + 35) {
-                    g.setColor(Color.WHITE);
-                    g.fillRect(i, j, 35, 35);
-                    g.setColor(Color.BLACK);
-                    g.drawRect(i, j, 35, 35);
-                }
-            }
+            grid.paint(g);
         }
     }
 
     public Main() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        grid = new Grid();
         Canvas canvas = new Canvas();
         setContentPane(canvas);
         pack();
         setVisible(true);
     }
+
+    Grid grid;
 }
